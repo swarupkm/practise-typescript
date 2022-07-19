@@ -1,0 +1,16 @@
+{
+  "name": "practise-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build-ts": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "main": "npm run build-ts && node dist/main.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  }
+}
