@@ -11,13 +11,9 @@ export class DepositUseCase {
 
     async handle(command: DepositCommand) {
         const account = await this.accountRepo.findBy(command.accountNumber);
-        notNullAccount(account);
+        if (!account) {
+            throw new Error('Account Not Found');
+        }        
         account.deposit(command.amount);
-    }
-}
-
-function notNullAccount(account: BankAccount) {
-    if (!account) {
-        throw new Error('Account Not Found');
     }
 }
