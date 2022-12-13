@@ -5,9 +5,9 @@ import { Money } from "./Money";
 export class BankAccount {
     private accountNumber: AccountNumber;
     private balance: Balance;
-    constructor(accountNumber: AccountNumber) {
+    constructor(accountNumber: AccountNumber, balance = new Balance(Money.ZERO)) {
         this.accountNumber = accountNumber;
-        this.balance = new Balance(Money.ZERO);
+        this.balance = balance;
     }
     deposit(amount: Money) {
         this.balance.increment(amount);
@@ -21,5 +21,9 @@ export class BankAccount {
 
     getBalance(): Balance {
         return this.balance;
+    }
+
+    isAccountNumber(accountNumber: AccountNumber) {
+        return this.accountNumber.equals(accountNumber);
     }
 }

@@ -4,4 +4,5 @@ import { BankAccount } from "../../../BankAccount";
 type Nullable<T> = T | null;
 export interface AccountRepository {
     findBy(accountNumber: AccountNumber): Promise<Nullable<BankAccount>>;
+    save(account: BankAccount): Promise<null>;
 }

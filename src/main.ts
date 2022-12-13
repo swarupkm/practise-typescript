@@ -5,8 +5,18 @@ import { Money } from "./domain/Money";
 import { accountRepository } from "./domain-infrastructure/adapters";
 
 const depositCase = new DepositUseCase(accountRepository);
-const command: DepositCommand = {
-    accountNumber: new AccountNumber("12323"),
-    amount: new Money(123),
-}
-depositCase.handle(command)
+(async () => {
+    const command1: DepositCommand = {
+        accountNumber: new AccountNumber("123"),
+        amount: new Money(200),
+    }  
+    await depositCase.handle(command1)
+
+    
+    const command2: DepositCommand = {
+        accountNumber: new AccountNumber("123"),
+        amount: new Money(400),
+    }
+    await depositCase.handle(command2)
+})()
+

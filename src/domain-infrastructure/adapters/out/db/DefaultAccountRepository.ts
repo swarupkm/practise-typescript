@@ -4,10 +4,16 @@ import { AccountRepository } from "../../../../domain/ports/out/db/AccountReposi
 
 type Nullable<T> = T | null;
 export class DefaultAccountRepository implements AccountRepository {
+    private account = new BankAccount(new AccountNumber("123"));
+    save(account: BankAccount): Promise<null> {
+        this.account = account;
+        console.log("After saving", this.account);
+        return Promise.resolve(null);
+    }
     findBy(accountNumber: AccountNumber): Promise<Nullable<BankAccount>> {
-        if (accountNumber.value().startsWith("A")) {
-            return Promise.resolve(null);
+        if (this.account.isAccountNumber(accountNumber)) {
+            return Promise.resolve(this.account);
         }
-        return Promise.resolve(new BankAccount(accountNumber));
+        return Promise.resolve(null);
     }
 }
