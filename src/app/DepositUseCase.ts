@@ -1,6 +1,5 @@
-import { AccountRepository } from "../ports/out/AccountRepository";
-import { BankAccount } from "../domain/BankAccount";
-import { DepositCommand } from "../ports/in/db/DepositCommand";
+import { AccountRepository } from "../domain/ports/out/db/AccountRepository";
+import { DepositCommand } from "../domain/ports/in/DepositCommand";
 
 export class DepositUseCase {
     private accountRepo: AccountRepository;

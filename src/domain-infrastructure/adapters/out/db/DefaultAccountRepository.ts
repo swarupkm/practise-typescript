@@ -1,6 +1,6 @@
-import { AccountNumber } from "../../../core/domain/AccountNumber";
-import { BankAccount } from "../../../core/domain/BankAccount";
-import { AccountRepository } from "../../../core/ports/out/AccountRepository";
+import { AccountNumber } from "../../../../domain/AccountNumber";
+import { BankAccount } from "../../../../domain/BankAccount";
+import { AccountRepository } from "../../../../domain/ports/out/db/AccountRepository";
 
 type Nullable<T> = T | null;
 export class DefaultAccountRepository implements AccountRepository {

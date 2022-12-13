@@ -1,5 +1,5 @@
-import { AccountNumber } from "../../domain/AccountNumber";
-import { BankAccount } from "../../domain/BankAccount";
+import { AccountNumber } from "../../../AccountNumber";
+import { BankAccount } from "../../../BankAccount";
 
 type Nullable<T> = T | null;
 export interface AccountRepository {

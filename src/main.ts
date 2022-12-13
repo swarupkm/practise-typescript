@@ -1,11 +1,10 @@
-import { DepositUseCase } from "./core/usecase/DepositUseCase";
-import { DepositCommand } from "./core/ports/in/db/DepositCommand";
-import { DefaultAccountRepository } from "./adapters/out/db/DefaultAccountRepository";
-import { AccountNumber } from "./core/domain/AccountNumber";
-import { Money } from "./core/domain/Money";
+import { DepositUseCase } from "./app/DepositUseCase";
+import { DepositCommand } from "./domain/ports/in/DepositCommand";
+import { AccountNumber } from "./domain/AccountNumber";
+import { Money } from "./domain/Money";
+import { accountRepository } from "./domain-infrastructure/adapters";
 
-const accountRepo = new DefaultAccountRepository();
-const depositCase = new DepositUseCase(accountRepo);
+const depositCase = new DepositUseCase(accountRepository);
 const command: DepositCommand = {
     accountNumber: new AccountNumber("12323"),
     amount: new Money(123),
